@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
@@ -14,16 +14,12 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl)
-      .pipe(
-        catchError(this.handleError)
-      );
+  getUsers(): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/users`);
   }
 
   getUser(userId: string): Observable<User> {
-    const url = `${this.apiUrl}/${userId}`;
-    return this.http.get<User>(url)
+    return this.http.get<User>(`${this.apiUrl}/users/${userId}`)
       .pipe(
         catchError(this.handleError)
       );
@@ -54,7 +50,7 @@ export class UserService {
 
   private handleError(error: any): Observable<any> {
     console.error('An error occurred:', error);
-    return Observable.throw(error.message || error);
+    return throwError(() => new Error('Your error'))
   }
 }
 
