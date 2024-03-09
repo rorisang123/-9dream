@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}/users`);
   }
 
-  getUser(userId: string): Observable<User> {
+  getUser(userId: number): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/users/${userId}`)
       .pipe(
         catchError(this.handleError)
@@ -32,15 +33,18 @@ export class UserService {
       );
   }
 
-  updateUser(userId: string, updatedUser: User): Observable<User> {
-    const url = `${this.apiUrl}/${userId}`;
-    return this.http.put<User>(url, updatedUser)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
+  updateUser = async (request: UpdateUserRequest): Promise<string> => {
+    try {
+      const { id, name, email } = request;
+      const response = await axios.put(`http://localhost:3000/users/${id}`, { name, email });
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return `Failed to update user with ID: ${request.id}`;
+    }
+  };
 
-  deleteUser(userId: string): Observable<any> {
+  deleteUser(userId: number): Observable<any> {
     const url = `${this.apiUrl}/${userId}`;
     return this.http.delete(url)
       .pipe(
@@ -61,5 +65,11 @@ interface User {
   last_name: string;
   date_of_birth: Date;
   gender: string;
+  email: string;
+}
+
+interface UpdateUserRequest {
+  id: number;
+  name: string;
   email: string;
 }
