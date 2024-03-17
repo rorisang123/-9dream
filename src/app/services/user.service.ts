@@ -60,7 +60,7 @@ export class UserService {
 
 interface User {
   user_id: number;
-  wallet_address: string;
+  wallet_address: string; 
   first_name: string;
   last_name: string;
   date_of_birth: Date;
