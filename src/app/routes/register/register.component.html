@@ -12,16 +12,30 @@
         <path d="M29.8668 94.4467C30.5102 94.5839 30.6808 94.6952 31.035 95.2385C31.3261 95.8726 31.5004 96.4622 31.5449 97.1631C31.5634 97.3726 31.5819 97.584 31.6023 97.8009C31.569 99.7014 30.8774 102.093 29.5053 103.467C29.0102 103.493 28.517 103.475 28.022 103.467C27.9293 103.191 27.9293 103.191 27.8365 102.911C28.2074 102.54 28.2074 102.54 28.5745 102.475C28.9824 102.386 28.9824 102.386 29.1901 101.984C29.2513 101.836 29.3143 101.685 29.3773 101.531C29.4422 101.383 29.5053 101.233 29.572 101.081C29.7408 100.68 29.7408 100.68 29.5053 100.315C29.166 100.28 29.166 100.28 28.8211 100.245C28.0183 100.161 27.5306 99.9202 26.9095 99.3881C26.3514 98.5018 26.407 97.3744 26.6313 96.3806C27.1728 94.7323 28.2055 94.3985 29.8668 94.4467Z" fill="#122C34"/>
         <path d="M29.018 95.4246C29.5038 95.4951 29.5038 95.4951 29.8116 95.877C30.1194 96.5501 30.1157 97.0396 30.0953 97.7775C30.0916 98.0093 30.086 98.2429 30.0804 98.4821C30.0749 98.6583 30.0675 98.8344 30.06 99.018C29.2108 99.4148 29.2108 99.4148 28.5192 99.1682C27.95 98.5711 27.9426 98.4302 27.9278 97.6385C27.9574 96.7652 28.0056 95.5841 29.018 95.4246Z" fill="white"/>
     </svg>
-    <input class=" rounded-lg px-4 py-2 " type="text" id="firstName" name="firstName"  size="10" />
+
+    <input class=" rounded-lg px-4 py-2 " placeholder="First Name" type="text" id="firstName" name="firstName"  size="10" />
     <br>
-    <input class=" rounded-lg px-4 py-2 " type="text" id="lastName" name="lastName" size="10" />
+    <input class=" rounded-lg px-4 py-2 " placeholder="Last Name" type="text" id="lastName" name="lastName" size="10" />
     <br>
-    <input class=" rounded-lg px-4 py-2 " type="text" id="email" name="email" size="10" />
+    <input class=" rounded-lg px-4 py-2 " placeholder="Email" type="text" id="email" name="email" size="10" />
     <br>
-    <input class=" rounded-lg px-4 py-2 " type="text" id="email" name="email" size="10" />
+    <input class=" rounded-lg px-4 py-2 " placeholder="Password" type="password" id="password" name="password" size="10" />
 
     <div>
-        
+        <div class="gender-selector">
+            <button class="gender-button" data-gender="male">Male</button>
+            <button class="gender-button" data-gender="female">Female</button>
+            <button class="gender-button" data-gender="other">Non-binary</button>
+        </div>
     </div>
+
+    <div>
+        <label for="dob">Date of birth</label>
+        <input type="date" id="dob" name="dob">
+    </div>
+
+    <input type="submit" name="register" id="register" value="Create account">
+    <br>
+    <input type="button" name="sign-in" id="sign-in" value="sign in">
     
 </div>
