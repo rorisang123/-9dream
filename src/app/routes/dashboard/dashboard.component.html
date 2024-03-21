@@ -1,19 +1,66 @@
-<div>
-    <app-header-logo-burger></app-header-logo-burger>
-    <main>
-        <span>Welcome back, Barrack</span>
-    </main>
-
+@if (showMenu) {<app-menu></app-menu>}
+@else {
     <div>
-        <span>Top campaigns</span>
+        <app-header-logo-burger></app-header-logo-burger>
+        <main>
+            <span>Welcome back, Barrack</span>
+        </main>
+    
+        <div>
+            <span>Stats</span>
+            <div class="stat-card campaign-card border-2 border-amber-700">
+                <span>20M</span>
+                <span>Voters</span>
+            </div>
+            <div class="stat-card campaign-card border-2 border-amber-700">
+                <span>125</span>
+                <span>Campaigns</span>
+            </div>
+            <div class="stat-card campaign-card border-2 border-amber-700">
+                <span>400B</span>
+                <span>Budget</span>
+            </div>
+        </div>
+    
+        <div>
+            <span>Top campaigns</span>
+            <div class="campaign-card-map">
+                <div class="campaign-card border-2 border-amber-700">
+                    <span>Fund 2 million students</span>    
+                    <span>Barrack Obama</span>  
+                    <span>200k</span>      
+                    <span>Votes</span>
+                </div>
+                <div class="campaign-card border-2 border-amber-700">
+                    <span>Fund 2 million students</span>    
+                    <span>Barrack Obama</span>  
+                    <span>200k</span>      
+                    <span>Votes</span>
+                </div>
+                <div class="campaign-card border-2 border-amber-700">
+                    <span>Fund 2 million students</span>    
+                    <span>Barrack Obama</span>  
+                    <span>200k</span>      
+                    <span>Votes</span>
+                </div>
+                <div class="campaign-card border-2 border-amber-700">
+                    <span>Fund 2 million students</span>    
+                    <span>Barrack Obama</span>  
+                    <span>200k</span>      
+                    <span>Votes</span>
+                </div>
+                <div class="campaign-card border-2 border-amber-700">
+                    <span>Fund 2 million students</span>    
+                    <span>Barrack Obama</span>  
+                    <span>200k</span>      
+                    <span>Votes</span>
+                </div>
+            </div>
+        </div>
+    
+        <div>
+            <button>Vote now</button>
+            <button>Create campaign</button>
+        </div>
     </div>
-
-    <div>
-        <span>Stats</span>
-    </div>
-
-    <div>
-        <button>Vote now</button>
-        <button>Create campaign</button>
-    </div>
-</div>
+}

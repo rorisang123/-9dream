@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { WebcamModule } from 'ngx-webcam';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [CommonModule, RouterOutlet]
+    imports: [CommonModule, RouterOutlet, WebcamModule]
 })
 export class AppComponent {
   title = 'angtest';

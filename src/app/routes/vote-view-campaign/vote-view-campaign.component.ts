@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { HeaderBackBurgerComponent } from "../../components/header-back-burger/header-back-burger.component";
 
 @Component({
-    selector: 'app-campaigns',
+    selector: 'app-vote-view-campaign',
     standalone: true,
-    templateUrl: './campaigns.component.html',
-    styleUrl: './campaigns.component.scss',
+    templateUrl: './vote-view-campaign.component.html',
+    styleUrl: './vote-view-campaign.component.scss',
     imports: [HeaderBackBurgerComponent]
 })
-export class CampaignsComponent {
+export class VoteViewCampaignComponent {
 
 }

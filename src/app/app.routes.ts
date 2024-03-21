@@ -12,19 +12,23 @@ import { VerifyVoteComponent } from './routes/verify-vote/verify-vote.component'
 import { VoteNowComponent } from './routes/vote-now/vote-now.component';
 import { VoteSelfieComponent } from './routes/vote-selfie/vote-selfie.component';
 import { CampaignsComponent } from './routes/campaigns/campaigns.component';
+import { EditProfileComponent } from './routes/edit-profile/edit-profile.component';
+import { VoteViewCampaignComponent } from './routes/vote-view-campaign/vote-view-campaign.component';
 
 export const routes: Routes = [
     { path: 'campaign', component: CampaignComponent },
     { path: 'campaigns', component: CampaignsComponent },
     { path: 'contact-developers', component: ContactDevelopersComponent },
-    { path: 'create-campaign', component: CreateCampaignComponent },
-    { path: 'create-promise', component: CreatePromiseComponent },
+    { path: 'campaign/create', component: CreateCampaignComponent },
+    { path: 'promise/create', component: CreatePromiseComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'profile', component: ProfileComponent },
+    { path: 'profile/edit', component: EditProfileComponent },
     { path: 'promise', component: PromiseComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'sign-in', component: SignInComponent },
-    { path: 'verify-vote', component: VerifyVoteComponent },
-    { path: 'vote-now', component: VoteNowComponent },
-    { path: 'vote-selfie', component: VoteSelfieComponent }
+    { path: 'vote/verify', component: VerifyVoteComponent },
+    { path: 'vote/view-campaign', component: VoteViewCampaignComponent},
+    { path: 'vote', component: VoteNowComponent },
+    { path: 'vote/selfie', component: VoteSelfieComponent }
 ];
