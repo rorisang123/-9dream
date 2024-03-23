@@ -3,6 +3,7 @@ import { HeaderLogoBurgerComponent } from '../../components/header-logo-burger/h
 import { MenuComponent } from '../../components/menu/menu.component';
 import { CampaignCardComponent } from "../../components/campaign-card/campaign-card.component";
 import { CampaignCardMiniComponent } from "../../components/campaign-card-mini/campaign-card-mini.component";
+import { MenuService } from '../../services/menu.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -12,5 +13,13 @@ import { CampaignCardMiniComponent } from "../../components/campaign-card-mini/c
     imports: [HeaderLogoBurgerComponent, MenuComponent, CampaignCardComponent, CampaignCardMiniComponent]
 })
 export class DashboardComponent {
-    showMenu: boolean = false;
+    showMenu: boolean = true;
+
+    constructor(private menuService: MenuService) {}
+
+    ngOnInit(): void {
+        this.menuService.showMenu$.subscribe(value => {
+            this.showMenu = value;
+        })
+    }
 }
