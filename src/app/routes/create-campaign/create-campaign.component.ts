@@ -19,5 +19,7 @@ export class CreateCampaignComponent {
         this.menuService.showMenu$.subscribe(value => {
             this.showMenu = value;
         })
+        
+        this.menuService.updateMenu(false);
     }
 }

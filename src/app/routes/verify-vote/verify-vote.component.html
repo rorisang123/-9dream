@@ -3,18 +3,20 @@
 <div>
     <app-header-back-burger></app-header-back-burger>
 
-    <main>
-        <h1>Decrease unemployment by 6%</h1>
+    <main class="ml-8 mr-8">
+        <h1 class="font-bold text-xl mb-7">Decrease unemployment by 6%</h1>
 
-        <img src="assets/pdf.svg">
-        <span><u>Barrack's promise</u></span>
-
-        <div id="confirm-vote">
-            <input type="checkbox" name="confirm" id="confirm">
-            <span>I have downloaded and read the promise</span>
+        <div class="flex">
+            <img src="assets/pdf.svg">
+            <a class="mx-3 font-bold text-sm" href="assets/barrack.png" download><u>View Barrack's promise</u></a>
         </div>
 
-        <button>Confirm vote</button>
+        <div class="mt-3">
+            <input type="checkbox" name="confirm" id="confirm">
+            <span class="ml-2 text-sm">I have downloaded and read the promise</span>
+        </div>
+
+        <button class="mt-5 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Confirm vote</button>
     </main>
 </div>
 }

@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { PromiseCardMiniComponent } from "../../components/promise-card-mini/promise-card-mini.component";
 import { MenuComponent } from "../../components/menu/menu.component";
 import { MenuService } from '../../services/menu.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-campaign',
     standalone: true,
     templateUrl: './campaign.component.html',
     styleUrl: './campaign.component.scss',
-    imports: [CommonModule, HeaderBackBurgerComponent, PromiseCardMiniComponent, MenuComponent]
+    imports: [CommonModule, HeaderBackBurgerComponent, PromiseCardMiniComponent, MenuComponent, RouterLink]
 })
 export class CampaignComponent implements OnInit{
     isOwner: boolean = true;
@@ -22,5 +23,7 @@ export class CampaignComponent implements OnInit{
         this.menuService.showMenu$.subscribe(value => {
             this.showMenu = value;
         })
+        
+        this.menuService.updateMenu(false);
     }
 }
