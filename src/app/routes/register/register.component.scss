@@ -1,28 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.gender-selector {
-    display: flex;
-    justify-content: space-between;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  
-  .gender-button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    background-color: #f1f1f1;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .gender-button:hover {
-    background-color: #ddd;
-  }
-  
-  .gender-button:focus {
-    background-color: #007bff;
-    color: white;
-  }

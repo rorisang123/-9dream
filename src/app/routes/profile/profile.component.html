@@ -1,57 +1,38 @@
 <div>
-    <div class="header-profile p-20 bg-orange-400">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_93_47)">
-            <path d="M9.725 3.225L8.25 1.75L0 10L8.25 18.25L9.725 16.775L2.95 10L9.725 3.225Z" fill="black"/>
-            </g>
-            <defs>
-            <clipPath id="clip0_93_47">
-            <rect width="20" height="20" fill="white"/>
-            </clipPath>
-            </defs>
-        </svg>
-    </div>
-    <div class="header-profile p-10 bg-lime-600 -mt-10 w-4 ml-6 rounded-full"></div>
-    <div class="Name">
-        <span>Barrack Obama</span>
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_86_133)">
-            <path d="M22.1667 12.625L19.93 10.0675L20.2417 6.685L16.9325 5.93333L15.2 3L12.0833 4.33833L8.96667 3L7.23417 5.92417L3.925 6.66667L4.23667 10.0583L2 12.625L4.23667 15.1825L3.925 18.5742L7.23417 19.3258L8.96667 22.25L12.0833 20.9025L15.2 22.2408L16.9325 19.3167L20.2417 18.565L19.93 15.1825L22.1667 12.625ZM10.3325 16.9517L6.84917 13.4592L8.20583 12.1025L10.3325 14.2383L15.695 8.8575L17.0517 10.2142L10.3325 16.9517Z" fill="#D8B917"/>
-            </g>
-            <defs>
-            <clipPath id="clip0_86_133">
-            <rect width="22" height="22" fill="white"/>
-            </clipPath>
-            </defs>
-        </svg>
-        <button>Edit profile</button>
+    <app-header-back></app-header-back>
+
+    <div class="flex flex-col items-center">
+        <div class="flex justify-center -mt-12">
+            <img class="p-10 rounded-full h-44 w-44" src="assets/barrack.png" alt="avi">
+        </div>
+        <h1 class="-mt-8 font-bold text-sm">Edit profile</h1>
     </div>
 
-    <div class="card-map">
-        <span class="card-heading">Personal information</span>
-        <div class="card">
-            <span>Name</span>
-            <input type="text" class="border-2 border-black" placeholder="Name">
-        </div>
-        <div class="card">
-            <span>Email</span>
-            <input type="text" class="border-2 border-black" placeholder="Email">
-        </div>
-        <div class="card">
-            <span>Wallet Address</span>
-            <input type="text" class="border-2 border-black" placeholder="Wallet address">
-        </div>
-        <div class="card">
-            <span>Gender</span>
-            <input type="text" class="border-2 border-black" placeholder="M">
-        </div>
-        <div class="card">
-            <span>Registration status</span>
-            <input type="text" class="border-2 border-black" placeholder="Registered">
-        </div>
-    </div>
+    <main class="ml-8 mr-8">
 
-    <div>
-        <button>Vote now</button>
-    </div>
+        <div class="flex mt-6">
+            <h1 class="font-bold text-xl">Barrack Obama</h1>
+            <img src="assets/verified.svg" alt="verified">
+        </div>
+    
+        <div class="card-map">
+            <span class="font-semibold text-neutral-400">Personal information</span>
+            
+                <h2 class="text-xs font-semibold mt-5">Name</h2>
+                <p class="mb-3 font-semibold text-sm">Barrack Obama</p>
+                
+                <h2 class="text-xs font-semibold">Email</h2>
+                <p class="mb-3 font-semibold text-sm">{{"barrack@potus.org"}}</p>
+                
+                <h2 class="text-xs font-semibold">Wallet Address</h2>
+                <p class="mb-3 font-semibold text-sm">123abc</p>
+                
+                <h2 class="text-xs font-semibold">Gender</h2>
+                <p class="mb-3 font-semibold text-sm">M</p>
+        </div>
+    
+        <div>
+            <button class="mt-8 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Vote now</button>
+        </div>
+    </main>
 </div>

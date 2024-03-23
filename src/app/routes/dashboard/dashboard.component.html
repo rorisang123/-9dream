@@ -2,65 +2,42 @@
 @else {
     <div>
         <app-header-logo-burger></app-header-logo-burger>
-        <main>
-            <span>Welcome back, Barrack</span>
-        </main>
+        <main class="ml-8 mr-8">
+            <span class="font-bold">Welcome back, <br>Barrack</span>
     
-        <div>
-            <span>Stats</span>
-            <div class="stat-card campaign-card border-2 border-amber-700">
-                <span>20M</span>
-                <span>Voters</span>
-            </div>
-            <div class="stat-card campaign-card border-2 border-amber-700">
-                <span>125</span>
-                <span>Campaigns</span>
-            </div>
-            <div class="stat-card campaign-card border-2 border-amber-700">
-                <span>400B</span>
-                <span>Budget</span>
+        <div class="pt-4">
+            <span class="text-zinc-500 text-sm font-bold">Stats</span>
+            <div class="flex">
+                <div class="stat-card bg-white rounded-md mr-4 p-2 w-24 min-h-18 text-center">
+                    <h1 class="font-bold text-black">20M</h1>
+                    <p class="font-bold text-xs text-zinc-500">Voters</p>
+                </div>
+                <div class="stat-card bg-white rounded-md mr-4 p-2 w-24 min-h-18 text-center">
+                    <h1 class="font-bold text-black">125</h1>
+                    <p class="font-bold text-xs text-zinc-500">Campaigns</p>
+                </div>
+                <div class="stat-card bg-white rounded-md mr-4 p-2 w-24 min-h-18 text-center">
+                    <h1 class="font-bold text-black">400B</h1>
+                    <p class="font-bold text-xs text-zinc-500">Budget</p>
+                </div>
             </div>
         </div>
     
-        <div>
-            <span>Top campaigns</span>
+        <div class="pt-4">
+            <span class="text-zinc-600 text-sm font-bold">Top campaigns</span>
             <div class="campaign-card-map">
-                <div class="campaign-card border-2 border-amber-700">
-                    <span>Fund 2 million students</span>    
-                    <span>Barrack Obama</span>  
-                    <span>200k</span>      
-                    <span>Votes</span>
-                </div>
-                <div class="campaign-card border-2 border-amber-700">
-                    <span>Fund 2 million students</span>    
-                    <span>Barrack Obama</span>  
-                    <span>200k</span>      
-                    <span>Votes</span>
-                </div>
-                <div class="campaign-card border-2 border-amber-700">
-                    <span>Fund 2 million students</span>    
-                    <span>Barrack Obama</span>  
-                    <span>200k</span>      
-                    <span>Votes</span>
-                </div>
-                <div class="campaign-card border-2 border-amber-700">
-                    <span>Fund 2 million students</span>    
-                    <span>Barrack Obama</span>  
-                    <span>200k</span>      
-                    <span>Votes</span>
-                </div>
-                <div class="campaign-card border-2 border-amber-700">
-                    <span>Fund 2 million students</span>    
-                    <span>Barrack Obama</span>  
-                    <span>200k</span>      
-                    <span>Votes</span>
-                </div>
+                <app-campaign-card-mini></app-campaign-card-mini>
+                <app-campaign-card-mini></app-campaign-card-mini>
+                <app-campaign-card-mini></app-campaign-card-mini>
+                <app-campaign-card-mini></app-campaign-card-mini>
+                <app-campaign-card-mini></app-campaign-card-mini>
             </div>
         </div>
     
         <div>
-            <button>Vote now</button>
-            <button>Create campaign</button>
+            <button class="mt-8 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Vote now</button>
+            <button class="mt-2 bg-stone-400 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Create campaign</button>
         </div>
+    </main>
     </div>
 }
