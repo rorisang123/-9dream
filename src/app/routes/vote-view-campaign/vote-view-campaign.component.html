@@ -1,51 +1,44 @@
 <div>
-    <app-header-back-burger></app-header-back-burger>
+    <app-header-back></app-header-back>
 
-    <main>
-        <h1>Change we can believe in</h1>
-        <img src="assets/verified.svg">
-        <p>My mission is to decrease unemployment by 6%</p>
+    <main class="ml-8 mr-8">
 
-        <h2>Barrack Obama</h2>
-        <button>Vote</button>
+        <p class="inline-flex items-center flex-wrap font-bold text-xl text-wrap w-fit">
+            Change we can believe in&nbsp;
+            <span><img src="assets/verified.svg" alt="Verified"/></span>
+        </p>
 
-        <div class="stats-block">
-             <div class="stats-block-card">
-                <h3>20M</h3>
-                <p>votes</p>
-             </div>
+        <p class="my-4">My <b>mission</b> is to decrease unemployment by 6%</p>
 
-             <div class="stats-block-card">
-                <h3>100</h3>
-                <p>Promises</p>
-             </div>
+        <h2 class="font-bold mt-6">Barrack Obama</h2>
+        <button *ngIf="isOwner === false" class="mt-5 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Next</button>
 
-             <div class="stats-block-card">
-                <h3>400B</h3>
-                <p>Budget</p>
-             </div>
+        <div class="pt-4 w-full">
+            <div class="flex">
+                <div class="stat-card bg-white rounded-md mr-4 p-2 w-24 min-h-18 text-center">
+                    <h1 class="font-bold text-black">20K</h1>
+                    <p class="font-bold text-xs text-zinc-500">Votes</p>
+                </div>
+                <div class="stat-card bg-white rounded-md mr-4 p-2 w-24 min-h-18 text-center">
+                    <h1 class="font-bold text-black">10</h1>
+                    <p class="font-bold text-xs text-zinc-500">Promise</p>
+                </div>
+                <div class="stat-card bg-white rounded-md mr-4 p-2 w-24 min-h-18 text-center">
+                    <h1 class="font-bold text-black">400B</h1>
+                    <p class="font-bold text-xs text-zinc-500">Budget</p>
+                </div>
+            </div>
         </div>
 
-        <h2>Promises</h2>
-        <p>Click on the promise to learn more</p>
+        <h2 class="text-zinc-600 text-sm font-bold mt-5">Promises</h2>
+        <p class="text-neutral-500 mb-4">Click on the promise to learn more</p>
 
-        <div class="promises-list">
-            <div class="promise-block border-2 border-black">
-                <span>North-West Univerity</span>
-                <span>R100m</span>
-            </div>
-            <div class="promise-block border-2 border-black">
-                <span>North-West Univerity</span>
-                <span>R100m</span>
-            </div>
-            <div class="promise-block border-2 border-black">
-                <span>North-West Univerity</span>
-                <span>R100m</span>
-            </div>
-            <div class="promise-block border-2 border-black">
-                <span>North-West Univerity</span>
-                <span>R100m</span>
-            </div>
+        <div class="promises-map">
+            <app-promise-card-mini></app-promise-card-mini>
+            <app-promise-card-mini></app-promise-card-mini>
+            <app-promise-card-mini></app-promise-card-mini>
+            <app-promise-card-mini></app-promise-card-mini>
+            <app-promise-card-mini></app-promise-card-mini>
         </div>
     </main>
 </div>

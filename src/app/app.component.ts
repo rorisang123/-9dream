@@ -11,5 +11,5 @@ import { WebcamModule } from 'ngx-webcam';
     imports: [CommonModule, RouterOutlet, WebcamModule]
 })
 export class AppComponent {
-  title = 'angtest';
+  title = '9dream';
 }

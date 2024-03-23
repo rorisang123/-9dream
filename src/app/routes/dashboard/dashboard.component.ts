@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderLogoBurgerComponent } from '../../components/header-logo-burger/header-logo-burger.component';
 import { MenuComponent } from '../../components/menu/menu.component';
 import { CampaignCardComponent } from "../../components/campaign-card/campaign-card.component";
@@ -12,7 +12,7 @@ import { MenuService } from '../../services/menu.service';
     styleUrl: './dashboard.component.scss',
     imports: [HeaderLogoBurgerComponent, MenuComponent, CampaignCardComponent, CampaignCardMiniComponent]
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
     showMenu: boolean = true;
 
     constructor(private menuService: MenuService) {}
