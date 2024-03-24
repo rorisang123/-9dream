@@ -21,7 +21,7 @@ export const routes: Routes = [
     { path: 'contact-developers', component: ContactDevelopersComponent },
     { path: 'campaign/create', component: CreateCampaignComponent },
     { path: 'promise/create', component: CreatePromiseComponent },
-    { path: 'dashboard', component: DashboardComponent },
+    { path: '', component: DashboardComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'profile/edit', component: EditProfileComponent },
     { path: 'promise', component: PromiseComponent },

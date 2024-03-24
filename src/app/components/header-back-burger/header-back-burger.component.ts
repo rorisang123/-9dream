@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-back-burger',
@@ -10,8 +11,18 @@ import { MenuService } from '../../services/menu.service';
 })
 export class HeaderBackBurgerComponent {
   showMenu!: boolean;
+  @Input() title!: string;
+  @Input() backRoute!: string;
 
-  constructor(private menuService: MenuService) {}
+  constructor(private menuService: MenuService, private router: Router) {}
+
+  goBack() {
+    if (this.backRoute) {
+      this.router.navigateByUrl(this.backRoute);
+    } else {
+      this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit(): void {
     this.menuService.showMenu$.subscribe(value => {
