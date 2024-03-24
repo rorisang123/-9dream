@@ -1,7 +1,7 @@
 @if (showMenu) {<app-menu></app-menu>}
 @else {
 <div>
-    <app-header-back-burger></app-header-back-burger>
+    <app-header-back-burger backRoute="/campaign/create"></app-header-back-burger>
     <main class="ml-8 mr-8">
         <h1 class="font-bold text-2xl">Create promise</h1>
         <h2 class="font-semibold text-neutral-500">Select the organisation you would like to
@@ -23,8 +23,8 @@
         </div>
 
         <div>
-            <button class="mt-8 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Add promise</button>
-            <button class="mt-2 bg-stone-400 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Publish campaign</button>
+            <button  routerLinkActive="router-link-active" class="mt-8 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Add promise</button>
+            <button [routerLink]="['/campaign']" routerLinkActive="router-link-active" class="mt-2 bg-stone-400 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Publish campaign</button>
         </div>
     </main>
 </div>

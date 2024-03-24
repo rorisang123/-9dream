@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { HeaderBackBurgerComponent } from "../../components/header-back-burger/header-back-burger.component";
 import { MenuComponent } from "../../components/menu/menu.component";
 import { MenuService } from '../../services/menu.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-verify-vote',
     standalone: true,
     templateUrl: './verify-vote.component.html',
     styleUrl: './verify-vote.component.scss',
-    imports: [HeaderBackBurgerComponent, MenuComponent]
+    imports: [RouterLink, HeaderBackBurgerComponent, MenuComponent]
 })
 export class VerifyVoteComponent {
     showMenu: boolean = true;

@@ -1,5 +1,5 @@
 <div>
-    <app-header-back></app-header-back>
+    <app-header-back backRoute="/vote"></app-header-back>
 
     <main class="ml-8 mr-8">
 
@@ -11,7 +11,7 @@
         <p class="my-4">My <b>mission</b> is to decrease unemployment by 6%</p>
 
         <h2 class="font-bold mt-6">Barrack Obama</h2>
-        <button *ngIf="isOwner === false" class="mt-5 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Next</button>
+        <button [routerLink]="['/vote/selfie']" routerLinkActive="router-link-active" *ngIf="isOwner === false" class="mt-5 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Next</button>
 
         <div class="pt-4 w-full">
             <div class="flex">

@@ -4,13 +4,14 @@ import { MenuComponent } from '../../components/menu/menu.component';
 import { CampaignCardComponent } from "../../components/campaign-card/campaign-card.component";
 import { CampaignCardMiniComponent } from "../../components/campaign-card-mini/campaign-card-mini.component";
 import { MenuService } from '../../services/menu.service';
+import { Route, RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-dashboard',
     standalone: true,
     templateUrl: './dashboard.component.html',
     styleUrl: './dashboard.component.scss',
-    imports: [HeaderLogoBurgerComponent, MenuComponent, CampaignCardComponent, CampaignCardMiniComponent]
+    imports: [HeaderLogoBurgerComponent, MenuComponent, CampaignCardComponent, CampaignCardMiniComponent, RouterLink]
 })
 export class DashboardComponent implements OnInit{
     showMenu: boolean = true;
