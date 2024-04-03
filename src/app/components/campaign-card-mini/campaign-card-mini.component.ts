@@ -24,7 +24,6 @@ export class CampaignCardMiniComponent {
       (data) => {
         this.top5Campaigns = data;
         this.getCampaignOwnerNames();
-        console.log(data);
       },
       (error) => {
         console.error('Error fetching campaigns:', error);

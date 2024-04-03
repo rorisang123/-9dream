@@ -52,7 +52,6 @@ export class CampaignCardComponent implements OnInit {
     this.campaigns.forEach(campaign => {
       this.campaignService.getCampaignBudget(campaign.campaign_id).subscribe(
         (budget) => {
-          console.log(budget.sum)
           this.campaignBudgets[campaign.campaign_id] = budget.sum;
         }
       )
