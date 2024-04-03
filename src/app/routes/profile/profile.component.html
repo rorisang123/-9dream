@@ -1,11 +1,11 @@
-<div>
+<div *ngIf="user">
     <app-header-back [backRoute]="'/'"></app-header-back>
 
     <div class="flex flex-col items-center">
         <div class="flex justify-center -mt-12">
             <img class="p-10 rounded-full h-44 w-44" src="assets/barrack.png" alt="avi">
         </div>
-        <h1 class="-mt-8 font-bold text-sm">Edit profile</h1>
+        <h1 [routerLink]="['/profile/edit']" class="-mt-8 font-bold text-sm">Edit profile</h1>
     </div>
 
     <main class="ml-8 mr-8">
@@ -19,20 +19,23 @@
             <span class="font-semibold text-neutral-400">Personal information</span>
             
                 <h2 class="text-xs font-semibold mt-5">Name</h2>
-                <p class="mb-3 font-semibold text-sm">Barrack Obama</p>
+                <p class="mb-3 font-semibold text-sm">{{user.first_name}}</p>
+
+                <h2 class="text-xs font-semibold mt-5">Surname</h2>
+                <p class="mb-3 font-semibold text-sm">{{user.last_name}}</p>
                 
                 <h2 class="text-xs font-semibold">Email</h2>
-                <p class="mb-3 font-semibold text-sm">{{"barrack@potus.org"}}</p>
+                <p class="mb-3 font-semibold text-sm">{{user.email}}</p>
                 
                 <h2 class="text-xs font-semibold">Wallet Address</h2>
-                <p class="mb-3 font-semibold text-sm">123abc</p>
+                <p class="mb-3 font-semibold text-sm">{{user.wallet_address}}</p>
                 
                 <h2 class="text-xs font-semibold">Gender</h2>
-                <p class="mb-3 font-semibold text-sm">M</p>
+                <p class="mb-3 font-semibold text-sm">{{user.gender}}</p>
         </div>
     
         <div>
-            <button [routerLink]="['/vote']" routerLinkActive="router-link-active" backRoute="/profile" class="mt-8 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Vote now</button>
+            <button backRoute="/profile/:id" [routerLink]="['/vote']" routerLinkActive="router-link-active" class="mt-8 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Vote now</button>
         </div>
     </main>
 </div>

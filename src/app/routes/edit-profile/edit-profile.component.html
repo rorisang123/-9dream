@@ -1,11 +1,10 @@
 <div>
-    <app-header-back></app-header-back>
+    <app-header-back backRoute="/profile"></app-header-back>
 
     <div class="flex flex-col items-center">
         <div class="flex justify-center -mt-12">
             <img class="p-10 rounded-full h-44 w-44" src="assets/barrack.png" alt="avi">
         </div>
-        <h1 class="-mt-8 font-bold text-sm">Edit profile</h1>
     </div>
 
     <main class="ml-8 mr-8">
@@ -19,13 +18,16 @@
             <span class="font-semibold text-neutral-400">Personal information</span>
             
                 <h2 class="text-xs font-semibold mt-5">Name</h2>
-                <input required class="mb-3 font-semibold text-sm p-1 rounded-sm border-2 border-neutral-300 mt-1" value="Obama">
+                <input required class="mb-3 font-semibold text-sm p-1 rounded-sm border-2 border-neutral-300 mt-1">
+
+                <h2 class="text-xs font-semibold mt-5">Surname</h2>
+                <input required class="mb-3 font-semibold text-sm p-1 rounded-sm border-2 border-neutral-300 mt-1">
                 
                 <h2 class="text-xs font-semibold">Email</h2>
-                <input required type="email" class="mb-3 font-semibold text-sm p-1 rounded-sm border-2 border-neutral-300 mt-1" value="barrack@potus.org">
+                <input required type="email" class="mb-3 font-semibold text-sm p-1 rounded-sm border-2 border-neutral-300 mt-1">
                 
                 <h2 class="text-xs font-semibold">Wallet Address</h2>
-                <input required class="mb-3 font-semibold text-sm p-1 rounded-sm border-2 border-neutral-300 mt-1" value="123abc">
+                <input required class="mb-3 font-semibold text-sm p-1 rounded-sm border-2 border-neutral-300 mt-1">
                 
                 <h2 class="text-xs font-semibold">Gender</h2>
                 <select required name="gender" id="gender" class="mb-3 font-semibold text-sm p-1 rounded-sm border-2 border-neutral-300 mt-1">

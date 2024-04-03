@@ -4,6 +4,7 @@ import { CampaignCardComponent } from "../../components/campaign-card/campaign-c
 import { MenuComponent } from "../../components/menu/menu.component";
 import { MenuService } from '../../services/menu.service';
 import { RouterLink } from '@angular/router';
+import { Campaign, CampaignService } from '../../services/campaign.service';
 
 @Component({
     selector: 'app-campaigns',
@@ -14,8 +15,7 @@ import { RouterLink } from '@angular/router';
 })
 export class CampaignsComponent {
     showMenu: boolean = true;
-
-    constructor(private menuService: MenuService) {}
+    constructor(private menuService: MenuService, private campaignService: CampaignService) {}
 
     ngOnInit(): void {
         this.menuService.showMenu$.subscribe(value => {

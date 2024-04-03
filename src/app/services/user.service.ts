@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
@@ -12,6 +12,8 @@ import axios from 'axios';
 export class UserService {
 
   private apiUrl = environment.apiUrl;
+  public userSubject = new BehaviorSubject<any>(null);
+  user$ = this.userSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -58,7 +60,7 @@ export class UserService {
   }
 }
 
-interface User {
+export interface User {
   user_id: number;
   wallet_address: string; 
   first_name: string;
@@ -68,7 +70,7 @@ interface User {
   email: string;
 }
 
-interface UpdateUserRequest {
+export interface UpdateUserRequest {
   id: number;
   name: string;
   email: string;

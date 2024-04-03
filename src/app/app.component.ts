@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { WebcamModule } from 'ngx-webcam';
 
 @Component({
@@ -11,5 +11,6 @@ import { WebcamModule } from 'ngx-webcam';
     imports: [CommonModule, RouterOutlet, WebcamModule]
 })
 export class AppComponent {
-  title = '9dream';
+  title = '9 dream';
+
 }

@@ -7,14 +7,14 @@
         <h1 class="font-bold text-xl mb-7">Promise</h1>
         <h2 class="text-sm"><b>Barrack Obama</b> is pledging R1m to <b>North-West University</b> to decrease unemployment by 6%</h2>
 
-        <div class="mt-6 text-sm">
-            <h2><b>Organisation: </b> North-West University</h2>
-            <h2><b>Organisation wallet: </b> 123abc</h2>
-            <h2><b>Value: </b> R1 000 000 000</h2>
-            <h2><b>Complete: </b> No</h2>
-            <h2><b>Date created: </b> 2024-10-09</h2>
-            <h2><b>Transaction id: </b> 1</h2>
-        </div>
+        <div class="mt-6 text-sm" *ngIf="promise">
+            <h2><b>Organisation: </b> {{organisationName}}</h2>
+            <h2><b>Organisation wallet: </b> {{promise.smart_contract_address}}</h2>
+            <h2><b>Value: </b> R{{promise.promise_value}}</h2>
+            <h2><b>Date created: </b> {{promise.promise_timestamp}}</h2>
+            <h2 *ngIf="transactionId"><b>Transaction id: </b>{{transactionId}}</h2>
+            <h2 *ngIf="!transactionId"><b>Transaction id: </b>PENDING</h2>
+          </div>
     </main>
 </div>
 }

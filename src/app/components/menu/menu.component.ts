@@ -10,5 +10,6 @@ import { RouterLink } from '@angular/router';
     imports: [HeaderCloseComponent, RouterLink]
 })
 export class MenuComponent {
+    userId = 2;
 
 }
