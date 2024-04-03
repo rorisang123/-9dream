@@ -25,8 +25,8 @@ export class CampaignService {
       );
   }
 
-  getTop5Campaigns(): Observable<Campaign[]> {
-    return this.http.get<Campaign[]>(`${this.apiUrl}/campaigns/top5`)
+  getTop5Campaigns(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/campaigns/top5`)
       .pipe(
         catchError(this.handleError)
       );
@@ -72,6 +72,7 @@ export class CampaignService {
 }
 
 export interface Campaign {
+vote_count: any;
   campaign_id: number;
   campaigner_id: number; 
   slogan: string;

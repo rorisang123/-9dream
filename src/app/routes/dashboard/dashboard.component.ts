@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit{
     showMenu: boolean = true;
     numberOfCampaigns!: number;
     numberOfVotes!: number;
-    top5Campaigns!: Campaign[];
 
     constructor(private menuService: MenuService, private campaignService: CampaignService,
         private voteService: VoteService) {}
@@ -33,22 +32,12 @@ export class DashboardComponent implements OnInit{
 
         this.getNumberOfCampaigns();
         this.getNumberOfVotes();
-        this.getTop5Campaigns();
     }
 
     getNumberOfCampaigns(): void {
         this.campaignService.getNumberOfCampaigns().subscribe(
             (numberOfCampaigns) => {
               this.numberOfCampaigns = numberOfCampaigns[0].count;
-            }
-          )
-    }
-
-    getTop5Campaigns(): void {
-        this.campaignService.getTop5Campaigns().subscribe(
-            (top5Campaigns) => {
-              this.top5Campaigns = top5Campaigns;
-              console.log(top5Campaigns);
             }
           )
     }
