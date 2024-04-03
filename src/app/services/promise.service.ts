@@ -23,6 +23,10 @@ export class PromiseService {
       );
   }
 
+  getPromiseById(campaignId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/promises/${campaignId}`);
+  }
+
   createPromise(promise: Promise): Observable<Promise> {
     return this.http.post<Promise>(this.apiUrl, promise)
       .pipe(

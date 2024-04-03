@@ -37,7 +37,6 @@ export class CampaignComponent implements OnInit{
     getCampaignById(campaignId: number): void {
         this.campaignService.getCampaignById(campaignId).subscribe(campaign => {
             this.campaign = campaign;
-          console.log(this.campaign);
         });
       }
 }
