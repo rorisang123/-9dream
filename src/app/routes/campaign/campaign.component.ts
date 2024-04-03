@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { PromiseCardMiniComponent } from "../../components/promise-card-mini/promise-card-mini.component";
 import { MenuComponent } from "../../components/menu/menu.component";
 import { MenuService } from '../../services/menu.service';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { CampaignService } from '../../services/campaign.service';
 
 @Component({
     selector: 'app-campaign',
@@ -14,10 +15,11 @@ import { RouterLink } from '@angular/router';
     imports: [CommonModule, HeaderBackBurgerComponent, PromiseCardMiniComponent, MenuComponent, RouterLink]
 })
 export class CampaignComponent implements OnInit{
+    constructor(private route: ActivatedRoute, private menuService: MenuService, private campaignService: CampaignService) {}
+
     isOwner: boolean = true;
     showMenu: boolean = true;
-
-    constructor(private menuService: MenuService) {}
+    campaign: any;
 
     ngOnInit(): void {
         this.menuService.showMenu$.subscribe(value => {
@@ -25,5 +27,17 @@ export class CampaignComponent implements OnInit{
         })
         
         this.menuService.updateMenu(false);
+
+        this.route.params.subscribe(params => {
+            const campaignId = params['id'];
+            this.getCampaignById(campaignId);
+          });
     }
+
+    getCampaignById(campaignId: number): void {
+        this.campaignService.getCampaignById(campaignId).subscribe(campaign => {
+            this.campaign = campaign;
+          console.log(this.campaign);
+        });
+      }
 }

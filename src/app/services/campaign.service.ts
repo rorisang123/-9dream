@@ -18,6 +18,13 @@ export class CampaignService {
     return this.http.get<Campaign[]>(`${this.apiUrl}/campaigns`);
   }
 
+  getCampaignById(campaignId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/campaigns/${campaignId}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   getCampaignOwnerName(userId: number): Observable<string> {
     return this.http.get<string>(`${this.apiUrl}/users/${userId}`)
       .pipe(
