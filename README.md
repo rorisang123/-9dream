@@ -4,7 +4,7 @@ Retro, my view is foggy still
 ## Stack
 FE
 * Typescript
-* Svelte
+* Angular
   
 Styling
 * Sass
