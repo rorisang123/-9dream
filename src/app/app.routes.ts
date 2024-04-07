@@ -16,7 +16,7 @@ import { EditProfileComponent } from './routes/edit-profile/edit-profile.compone
 import { VoteViewCampaignComponent } from './routes/vote-view-campaign/vote-view-campaign.component';
 
 export const routes: Routes = [
-    { path: 'campaign/:id', component: CampaignComponent },
+    { path: 'campaigns/:id', component: CampaignComponent },
     { path: 'campaigns', component: CampaignsComponent },
     { path: 'contact-developers', component: ContactDevelopersComponent },
     { path: 'campaign/create', component: CreateCampaignComponent },
@@ -24,7 +24,7 @@ export const routes: Routes = [
     { path: '', component: DashboardComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'profile/edit', component: EditProfileComponent },
-    { path: 'promise/:id', component: PromiseComponent },
+    { path: 'promises/:id', component: PromiseComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'sign-in', component: SignInComponent },
     { path: 'vote/verify', component: VerifyVoteComponent },

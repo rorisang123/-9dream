@@ -1,4 +1,5 @@
-<div *ngFor="let campaign of campaigns" [routerLink]="['/campaign']" routerLinkActive="router-link-active" class="flex campaign-card shadow-md p-4 rounded-lg bg-white mt-3">
+<div *ngFor="let campaign of campaigns" [routerLink]="['/campaigns', campaign.campaign_id]" routerLinkActive="router-link-active" class="flex campaign-card shadow-md p-4 rounded-lg bg-white mt-3">
+    <!-- Todo get assets from db-->
     <img src="assets/barrack.png" alt="profile" class="object-none">
     <div *ngIf="campaign" class="flex flex-col pl-2">
         <span class="font-bold">{{ campaignOwnerNames[campaign.campaigner_id] }}</span>
