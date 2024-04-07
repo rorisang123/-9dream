@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { PromiseService } from '../../services/promise.service';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Promise, PromiseService } from '../../services/promise.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,17 +11,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './promise-card-mini.component.scss'
 })
 export class PromiseCardMiniComponent {
-  promises!: any;
+  promises!: Promise[];
 
-  constructor(private promiseService: PromiseService) {}
+  constructor(private route: ActivatedRoute, private promiseService: PromiseService) {}
 
   ngOnInit(): void {
-    this.getPromises(3);
+    this.route.params.subscribe(params => {
+      this.getPromises(params['id']);
+    });
   }
 
   getPromises(campaignId: number): void {
-    this.promiseService.getPromiseById(campaignId).subscribe(promises => {
-      this.promises = promises;
+    this.promiseService.getPromiseByCampaignId(campaignId).subscribe(promises => {
+      this.promises = [promises];
     })
   }
 }

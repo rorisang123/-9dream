@@ -23,8 +23,12 @@ export class PromiseService {
       );
   }
 
-  getPromiseById(campaignId: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/promises/${campaignId}`);
+  getPromiseById(campaignId: number): Observable<Promise> {
+    return this.http.get<Promise>(`${this.apiUrl}/promises/${campaignId}`);
+  }
+
+  getPromiseByCampaignId(campaignId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/promises/campaign/${campaignId}`);
   }
 
   createPromise(promise: Promise): Observable<Promise> {
@@ -55,6 +59,7 @@ export interface Promise {
   organisation_id: number;
   promise_timestamp: Date;
   promise_value: number;
+  organisation_name: string;
 }
 
 
