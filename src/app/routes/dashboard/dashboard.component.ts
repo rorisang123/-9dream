@@ -40,7 +40,6 @@ export class DashboardComponent implements OnInit{
         this.campaignService.getTop5Campaigns().subscribe(
             (top5Campaigns) => {
               this.top5Campaigns = top5Campaigns;
-              console.log(top5Campaigns);
             }
           )
     }

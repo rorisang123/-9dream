@@ -1,4 +1,4 @@
-<div *ngFor="let campaign of top5Campaigns" [routerLink]="['/campaign']" routerLinkActive="router-link-active"  class="bg-white shadow-md my-2 w-full justify-center shadow-gray-400 text-gray-800 py-2 px-4 rounded inline-flex items-center">
+<div *ngFor="let campaign of top5Campaigns"  [routerLink]="['/campaigns', campaign.campaign_id]" routerLinkActive="router-link-active"  class="bg-white shadow-md my-2 w-full justify-center shadow-gray-400 text-gray-800 py-2 px-4 rounded inline-flex items-center">
     <div class="flex flex-col w-80">
         <span class="font-black text-sm">{{campaign.mission_statement }}</span>    
         <span class="text-xs text-neutral-500">{{campaignOwnerNames[campaign.campaigner_id] }}</span> 
@@ -8,5 +8,3 @@
         <span class="text-xs">votes</span>
     </div>
 </div>
-
-<!--{{"campaignVotes[campaign.campaign_id]"}}-->
