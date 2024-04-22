@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, throwError } from 'rxjs';
 import { User } from './user.service';
 import { Promise } from './promise.service';
 
@@ -11,8 +11,18 @@ import { Promise } from './promise.service';
 export class CampaignService {
 
   private apiUrl = environment.apiUrl;
+  private campaignSource = new BehaviorSubject<Campaign | null>(null);
+  currentCampaign = this.campaignSource.asObservable();
 
   constructor(private http: HttpClient) { }
+
+  changeCampaign(campaign: Campaign) {
+    this.campaignSource.next(campaign);
+  }
+
+  searchCampaigns(missionStatement: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/campaigns/search`);
+  }
 
   getCampaigns(): Observable<Campaign[]> {
     return this.http.get<Campaign[]>(`${this.apiUrl}/campaigns`);
@@ -57,8 +67,8 @@ export class CampaignService {
       );
   }
 
-  createCampaign(campaign: Campaign): Observable<Campaign> {
-    return this.http.post<Campaign>(this.apiUrl, campaign)
+  createCampaign(campaign: any): Observable<any> {
+    return this.http.post<Campaign>(`${this.apiUrl}/campaigns/`, campaign)
       .pipe(
         catchError(this.handleError)
       );

@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { HeaderBackBurgerComponent } from "../../components/header-back-burger/header-back-burger.component";
 import { MenuComponent } from "../../components/menu/menu.component";
 import { MenuService } from '../../services/menu.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { SearchService } from '../../services/search.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Vote, VoteService } from '../../services/vote.service';
+import { CampaignService } from '../../services/campaign.service';
 
 @Component({
     selector: 'app-vote-now',
@@ -17,10 +19,18 @@ import { CommonModule } from '@angular/common';
 })
 export class VoteNowComponent {
     showMenu: boolean = true;
-    searchControl = new FormControl('');
-    results: any[] = [];
 
-    constructor(private menuService: MenuService, private searchService: SearchService) {}
+    missionStatement: string = '';
+    campaigns: any[] = [];
+    selectedCampaign: any = null;
+    searchControl = new FormControl('');
+    results: any[] = []
+
+    constructor(private menuService: MenuService, 
+      private searchService: SearchService, private voteService: VoteService,
+      private campaignService: CampaignService,
+      private router: Router) {}
+
 
     ngOnInit(): void {
         this.menuService.showMenu$.subscribe(value => {
@@ -35,13 +45,30 @@ export class VoteNowComponent {
         distinctUntilChanged(),
         switchMap(term => term ? this.searchService.searchCampaigns(term) : [])
       )
-      .subscribe(data => {
+      .subscribe((data: any) => {
         this.results = data;
       });
     }
 
-    selectCandidate(candidate: any): void {
-        this.searchControl.setValue(candidate.mission_statement);
-        this.results = [];
+    searchCampaigns(): void {
+      this.campaignService.searchCampaigns(this.missionStatement).subscribe(
+        (data: any[]) => {
+          this.campaigns = data;
+        },
+        (error: any) => {
+          console.error('Error fetching campaigns', error);
+        }
+      );
     }
+
+    onMissionStatementChange(event: Event): void {
+      this.missionStatement = (event.target as HTMLInputElement).value;
+      this.searchCampaigns();
+    }
+
+    selectCampaign(campaign: any): void {
+      this.selectedCampaign = campaign;
+      // Here we would handle navigating to the next page of the flow and keeping the state
+    }
+
 }

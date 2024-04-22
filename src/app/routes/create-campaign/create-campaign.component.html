@@ -14,8 +14,8 @@
         </div>
 
         <div class="mt-5 flex flex-col items-start w-84 ">
-            <label for="mission-statement">Mission statement</label>
-            <textarea name="mission-statement"  class="h-40 outline-none border-2 border-gray-400 rounded-md w-full"></textarea>
+            <label for="missionStatement">Mission statement</label>
+            <textarea name="missionStatement"  class="h-40 outline-none border-2 border-gray-400 rounded-md w-full"></textarea>
         </div>
 
         <div class="mt-4">
@@ -26,7 +26,7 @@
             <input type="file" name="thesis" id="thesis" class="hidden">
         </div>
 
-        <button [routerLink]="['/promise/create']" routerLinkActive="router-link-active" class="mt-8 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Next</button>
+        <button (click)="onSubmit()" class="mt-8 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Next</button>
     </main>
 </div>
 }
