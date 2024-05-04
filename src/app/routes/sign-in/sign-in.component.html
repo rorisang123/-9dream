@@ -3,10 +3,12 @@
         <img src="assets/logo.svg" alt="logo" class="-mt-32 w-14 h-64 pt-32">
     </div>
 
-    <input class="outline-none rounded-lg px-4 py-2 bg-white mt-4 w-64" type="text" id="email" name="email" placeholder="Email"/>
-    <input class="outline-none rounded-lg px-4 py-2 bg-white mt-4 w-64" type="text" id="pass" name="pass" placeholder="Password" />
+    <input class="outline-none rounded-lg px-4 py-2 bg-white mt-4 w-64" type="text" [(ngModel)]="email" name="email" placeholder="Email"/>
+    <input class="outline-none rounded-lg px-4 py-2 bg-white mt-4 w-64" type="password" [(ngModel)]="password" name="password" placeholder="Password" />
     <p class="font-bold text-xs mt-2">Forgot password</p>
 
-    <input type="button" value="Sign in" class="mt-20 bg-gray-800 text-neutral-100 w-64 rounded-md p-3 font-semibold text-xs">
+    <input type="button" value="Sign in" (click)="onLogin()" class="mt-20 bg-gray-800 text-neutral-100 w-64 rounded-md p-3 font-semibold text-xs">
+
+
     <p routerLink="/register" class="text-xs font-semibold mt-3">Register</p>
 </div>

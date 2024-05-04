@@ -1,32 +1,34 @@
 <div class="flex flex-col h-screen justify-center items-center bg-gray-200">
+    <form action=""></form>
     <div class="mb-12">
         <img src="assets/logo.svg" alt="logo" class="-mt-32 w-14 h-64 pt-32">
     </div>
 
     <div class="outline-none w-64">
-        <input class=" rounded-lg px-4 py-2 w-full mt-4" placeholder="First Name" type="text" id="firstName" name="firstName"  />
-        <input class=" rounded-lg px-4 py-2 w-full mt-4" placeholder="Last Name" type="text" id="lastName" name="lastName" />
-        <input class=" rounded-lg px-4 py-2 w-full mt-4" placeholder="Email" type="text" id="email" name="email" />
-        <input class=" rounded-lg px-4 py-2 w-full mt-4" placeholder="Password" type="password" id="password" name="password" />
+        <input class=" rounded-lg px-4 py-2 w-full mt-4" placeholder="First Name" [(ngModel)]="first_name" type="text" id="firstName" name="firstName"  />
+        <input class=" rounded-lg px-4 py-2 w-full mt-4" placeholder="Last Name" [(ngModel)]="last_name" type="text" id="lastName" name="lastName" />
+        <input class=" rounded-lg px-4 py-2 w-full mt-4" placeholder="Email" [(ngModel)]="email" type="text" id="email" name="email" />
+        <input class=" rounded-lg px-4 py-2 w-full mt-4" placeholder="Wallet address" [(ngModel)]="wallet_address" type="text" id="wallet-address" name="wallet-address" />
+        <input class=" rounded-lg px-4 py-2 w-full mt-4" placeholder="Password" type="password" [(ngModel)]="password" id="password" name="password" />
     </div>
 
     <div class="flex justify-between w-64 mt-3">
-        <button class="flex-1 w-full px-5 py-3 text-xs border-none rounded-l-md font-semibold" [ngClass]="{'bg-gray-200': !isMaleActive, 'bg-gray-800 text-white': isMaleActive}" (click)="toggleGender('male')">
+        <button class="flex-1 w-full px-5 py-3 text-xs border-none rounded-l-md font-semibold" [ngClass]="{'bg-gray-200': !isMaleActive, 'bg-gray-800 text-white': isMaleActive}" (click)="toggleGender('m')">
             Male
         </button>
-        <button class="flex-1 w-full px-5 py-2 text-xs border-none font-semibold" [ngClass]="{'bg-gray-200': !isFemaleActive, 'bg-gray-800 text-white': isFemaleActive}" (click)="toggleGender('female')">
+        <button class="flex-1 w-full px-5 py-2 text-xs border-none font-semibold" [ngClass]="{'bg-gray-200': !isFemaleActive, 'bg-gray-800 text-white': isFemaleActive}" (click)="toggleGender('f')">
             Female
-        </button><button class="flex-1 w-full px-5 py-3 text-xs border-none rounded-r-md font-semibold" [ngClass]="{'bg-gray-200': !isNonBinaryActive, 'bg-gray-800 text-white': isNonBinaryActive}" (click)="toggleGender('nonbinary')">
+        </button><button class="flex-1 w-full px-5 py-3 text-xs border-none rounded-r-md font-semibold" [ngClass]="{'bg-gray-200': !isNonBinaryActive, 'bg-gray-800 text-white': isNonBinaryActive}" (click)="toggleGender('n')">
             Non-binary
         </button>
       </div>
 
     <div class="mt-5 flex flex-col items-start w-64">
-        <label for="dob" class="text-xs font-bold text-neutral-700">Date of birth</label>
-        <input type="date" id="dob" name="dob" class="mt-2 w-full p-2 outline-none font-semibold text-xs">
+        <label for="dob"  class="text-xs font-bold text-neutral-700">Date of birth</label>
+        <input type="date" id="dob" [(ngModel)]="date_of_birth" name="dob" class="mt-2 w-full p-2 outline-none font-semibold text-xs">
     </div>
 
-    <input type="submit" name="register" id="register" value="Create account" class="mt-12 bg-gray-800 text-neutral-100 w-64 rounded-md p-3 font-semibold text-xs">
+    <input type="button" (click)="onRegister()" name="register" id="register" value="Create account" class="mt-12 bg-gray-800 text-neutral-100 w-64 rounded-md p-3 font-semibold text-xs">
     <input routerLink="/sign-in" type="button" name="sign-in" id="sign-in" value="Sign in" class="text-xs font-semibold mt-3">
     
 </div>

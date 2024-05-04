@@ -89,7 +89,7 @@ export class CampaignService {
 }
 
 export interface Campaign {
-vote_count: any;
+  vote_count: any;
   campaign_id: number;
   campaigner_id: number; 
   slogan: string;

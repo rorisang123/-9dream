@@ -33,16 +33,20 @@ export class CreateCampaignComponent {
         this.menuService.updateMenu(false);
     }
 
-    onSubmit() {
+    onSubmit(event: Event) {
+        event.preventDefault();  // Prevent the default form submission which causes page refresh
         this.campaignService.createCampaign({
-          campaigner_id: 1,  // Static user ID for now
-          slogan: this.campaignForm.value.slogan || "",
-          mission_statement: this.campaignForm.value.missionStatement || ""
+          campaignerId: 1,  // Static user ID for now
+          slogan: this.campaignForm.value.slogan,
+          missionStatement: this.campaignForm.value.missionStatement
         }).subscribe({
           next: (response) => {
-            this.router.navigate(['/promise/create', response.campaignId]);
+            this.router.navigate(['/promise/create', response.campaign_id]);
           },
-          error: (error) => console.error('Error creating campaign:', error)
+          error: (error) => {
+            console.error('Error creating campaign:', error);
+          }
         });
-    }
+      }
+      
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderCloseComponent } from "../header-close/header-close.component";
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
     selector: 'app-menu',
@@ -12,4 +13,10 @@ import { RouterLink } from '@angular/router';
 export class MenuComponent {
     userId = 2;
 
+    constructor(private authService: AuthService, private router: Router) {}
+
+    onLogout(): void {
+        this.authService.logout();
+        this.router.navigate(['/sign-in']); 
+    }
 }

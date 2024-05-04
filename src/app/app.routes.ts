@@ -14,21 +14,22 @@ import { VoteSelfieComponent } from './routes/vote-selfie/vote-selfie.component'
 import { CampaignsComponent } from './routes/campaigns/campaigns.component';
 import { EditProfileComponent } from './routes/edit-profile/edit-profile.component';
 import { VoteViewCampaignComponent } from './routes/vote-view-campaign/vote-view-campaign.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-    { path: 'campaigns/:id', component: CampaignComponent },
-    { path: 'campaigns', component: CampaignsComponent },
-    { path: 'contact-developers', component: ContactDevelopersComponent },
+    { path: 'campaigns/:id', component: CampaignComponent, canActivate: [AuthGuard]},
+    { path: 'campaigns', component: CampaignsComponent, canActivate: [AuthGuard] },
+    { path: 'contact-developers', component: ContactDevelopersComponent, canActivate: [AuthGuard] },
     { path: 'campaign/create', component: CreateCampaignComponent },
-    { path: 'promise/create', component: CreatePromiseComponent },
-    { path: '', component: DashboardComponent },
-    { path: 'profile', component: ProfileComponent },
-    { path: 'profile/edit', component: EditProfileComponent },
-    { path: 'promises/:id', component: PromiseComponent },
+    { path: 'promise/create', component: CreatePromiseComponent, canActivate: [AuthGuard] },
+    { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'profile/edit', component: EditProfileComponent, canActivate: [AuthGuard] },
+    { path: 'promises/:id', component: PromiseComponent, canActivate: [AuthGuard] },
     { path: 'register', component: RegisterComponent },
     { path: 'sign-in', component: SignInComponent },
-    { path: 'vote/verify', component: VerifyVoteComponent },
-    { path: 'vote/campaign/:id', component: VoteViewCampaignComponent},
-    { path: 'vote', component: VoteNowComponent },
-    { path: 'vote/selfie', component: VoteSelfieComponent }
+    { path: 'vote/verify', component: VerifyVoteComponent, canActivate: [AuthGuard] },
+    { path: 'vote/campaign/:id', component: VoteViewCampaignComponent, canActivate: [AuthGuard]},
+    { path: 'vote', component: VoteNowComponent, canActivate: [AuthGuard] },
+    { path: 'vote/selfie', component: VoteSelfieComponent, canActivate: [AuthGuard] }
 ];
