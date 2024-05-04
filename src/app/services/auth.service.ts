@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   public get currentUserValue(): any {
-    return this.currentUserSubject.value;
+    return this.currentUserSubject;
   }
 
   login(email: string, password: string): Observable<any> {
@@ -31,6 +31,7 @@ export class AuthService {
         if (typeof window !== 'undefined') {
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUserSubject.next(user);
+          console.log(this.currentUser)
         }
         return user;
       }));

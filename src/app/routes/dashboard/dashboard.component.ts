@@ -8,6 +8,7 @@ import { Route, RouterLink } from '@angular/router';
 import { Campaign, CampaignService } from '../../services/campaign.service';
 import { CommonModule } from '@angular/common';
 import { VoteService } from '../../services/vote.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -21,9 +22,10 @@ export class DashboardComponent implements OnInit{
     numberOfCampaigns!: number;
     numberOfVotes!: number;
     top5Campaigns!: Campaign[];
+    firstName: string = '';
 
     constructor(private menuService: MenuService, private campaignService: CampaignService,
-        private voteService: VoteService) {}
+        private voteService: VoteService, private authService: AuthService) {}
 
     ngOnInit(): void {
         this.menuService.showMenu$.subscribe(value => {
@@ -34,6 +36,11 @@ export class DashboardComponent implements OnInit{
         this.getNumberOfCampaigns();
         this.getNumberOfVotes();
         this.getTop5Campaigns();
+
+        const currentUser = this.authService.currentUserValue;
+        if (currentUser && currentUser.firstName) {
+          this.firstName = currentUser.firstName;
+        }
     }
 
     getTop5Campaigns(): void {
