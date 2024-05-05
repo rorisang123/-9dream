@@ -25,6 +25,10 @@ export class AuthService {
     return this.currentUserSubject;
   }
 
+  getCurrentUser() {
+    return this.currentUserSubject.asObservable();
+  }
+
   login(email: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/auth/login`, { email, password })
       .pipe(map(user => {

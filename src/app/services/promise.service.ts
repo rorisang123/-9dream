@@ -31,8 +31,9 @@ export class PromiseService {
     return this.http.get<any>(`${this.apiUrl}/promises/campaign/${campaignId}`);
   }
 
-  createPromise(promise: Promise): Observable<Promise> {
-    return this.http.post<Promise>(this.apiUrl, promise)
+  createPromise( smart_contract_address: string, owner_id: number, organisation_id: number,
+    timestamp: Date, value: number, campaign_id: number): Observable<Promise> {
+    return this.http.post<Promise>(`${this.apiUrl}/promises/`, { smart_contract_address, owner_id, organisation_id, timestamp, value, campaign_id})
       .pipe(
         catchError(this.handleError)
       );

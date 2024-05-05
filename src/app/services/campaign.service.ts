@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, catchError, map, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
 import { User } from './user.service';
 import { Promise } from './promise.service';
 
@@ -11,15 +11,11 @@ import { Promise } from './promise.service';
 export class CampaignService {
 
   private apiUrl = environment.apiUrl;
-  private campaignSource = new BehaviorSubject<Campaign | null>(null);
-  currentCampaign = this.campaignSource.asObservable();
+  private campaignIdSource = new BehaviorSubject<number | null>(null);
+  currentCampaignId = this.campaignIdSource.asObservable();
 
   constructor(private http: HttpClient) { }
-
-  changeCampaign(campaign: Campaign) {
-    this.campaignSource.next(campaign);
-  }
-
+  
   searchCampaigns(missionStatement: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/campaigns/search`);
   }
@@ -67,11 +63,13 @@ export class CampaignService {
       );
   }
 
-  createCampaign(campaign: any): Observable<any> {
-    return this.http.post<Campaign>(`${this.apiUrl}/campaigns/`, campaign)
-      .pipe(
-        catchError(this.handleError)
-      );
+  createCampaign(campaignerId: number, slogan: string, missionStatement: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/campaigns/`, {campaignerId, slogan, missionStatement})
+    .pipe(
+      tap((response) => {
+        this.campaignIdSource.next(response?.data.campaign_id);
+      })
+    );
   }
 
   deleteCampaign(campaignId: number): Observable<any> {
@@ -94,7 +92,6 @@ export interface Campaign {
   campaigner_id: number; 
   slogan: string;
   mission_statement: string;
-  thesis: string;
 }
 
 

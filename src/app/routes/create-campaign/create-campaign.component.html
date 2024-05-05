@@ -5,7 +5,6 @@
 <div>
     <app-header-back-burger></app-header-back-burger>
     <main class="ml-8 mr-8">
-        <form (ngSubmit)="onSubmit($event)">
             <h1 class="font-bold text-2xl">Create campaign</h1>
             <h2 class="font-semibold text-neutral-500">
                 Select the organisation you would like to make a promise to and specify the amount
@@ -13,24 +12,16 @@
         
             <div class="mt-5 flex flex-col items-start w-84">
                 <label for="slogan">Slogan</label>
-                <textarea id="slogan" name="slogan" maxlength="80" class="p-1 outline-none border-2 border-gray-400 rounded-md w-full h-12" required></textarea>
+                <textarea id="slogan" [(ngModel)]="slogan" name="slogan" maxlength="80" class="p-1 outline-none border-2 border-gray-400 rounded-md w-full h-12" required></textarea>
             </div>
         
             <div class="mt-5 flex flex-col items-start w-84">
                 <label for="missionStatement">Mission statement</label>
-                <textarea id="missionStatement" name="missionStatement" class="h-40 outline-none border-2 border-gray-400 rounded-md w-full" required></textarea>
+                <textarea id="missionStatement" [(ngModel)]="missionStatement" name="missionStatement" class="h-40 outline-none border-2 border-gray-400 rounded-md w-full" required></textarea>
             </div>
         
-            <div class="mt-4">
-                <label for="thesis" class="flex">
-                    <img src="assets/attach.svg" alt="attach" class="mr-4">
-                    <span>Attach thesis</span>
-                </label>
-                <input type="file" id="thesis" name="thesis" class="hidden">
-            </div>
-        
-            <button type="submit" class="mt-8 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Next</button>
-        </form>
+            <button type="button" (click)="onCreateCampaign()"  routerLink="/promise/create" routerLinkActive="active"  class="mt-8 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Next</button>
+       
         
     </main>
 </div>
