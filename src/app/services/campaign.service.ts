@@ -73,7 +73,7 @@ export class CampaignService {
   }
 
   deleteCampaign(campaignId: number): Observable<any> {
-    const url = `${this.apiUrl}/${campaignId}`;
+    const url = `${this.apiUrl}/campaigns/${campaignId}`;
     return this.http.delete(url)
       .pipe(
         catchError(this.handleError)

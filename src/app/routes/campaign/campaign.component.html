@@ -14,7 +14,7 @@
 
         <h2 class="font-bold mt-6">{{campaign.user_name}}</h2>
         <button *ngIf="!isOwner" class="mt-5 bg-gray-800 text-neutral-100 w-full rounded-md p-3 font-semibold text-xs">Vote</button>
-        <button *ngIf="isOwner" class="mt-5 bg-red-400 text-white w-full rounded-md p-3 font-semibold text-xs">Delete campaign</button>
+        <button (click)="onDelete()" *ngIf="isOwner" class="mt-5 bg-red-400 text-white w-full rounded-md p-3 font-semibold text-xs">Delete campaign</button>
 
         <div class="pt-4 w-full">
             <div class="flex">
